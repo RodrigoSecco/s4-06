@@ -1,8 +1,9 @@
 function newForEach(array, callback){
+    let newArray=[]
     for(let i = 0; i<array.length; i++){
-        array[i] = callback(array[i]);
+        newArray[i] = callback(array[i]);
     }
-    return array;
+    return newArray;
 }
 
 function newMap(array, callback){
@@ -31,28 +32,27 @@ function newFind(array, callback){
     }
 }
 
-function newIndexOf(array, callback){
+function newIndexOf(array, elemento){
     for(let i = 0; i<array.length; i++){
-        if(callback(array[i])){
+        if(elemento===array[i]){
             return i;
         }
     }
     return -1;
 }
  
-function newIncludes(array, callback){
+function newIncludes(array, elemento){
     for(let i = 0; i<array.length; i++){
-        if(callback(array[i])){
+        if(elemento===array[i]){
             return true;
         }
     }
     return false;
 }
 
-function newReduce(array){
-    let soma = 0;
+function newReduce(array, acumulador){
     for(let i = 0; i<array.length; i++){
-        soma = array[i];
+        acumulador = acumulador + array[i];
     }
-    return soma;
+    return acumulador;
 }
